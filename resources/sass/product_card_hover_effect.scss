@@ -1,0 +1,9 @@
+.hover-bg {
+        transition: background-color 0.3s;
+    }
+    
+.hover-bg:hover {
+    background-color: #f0f0f0;
+
+    cursor: default;
+}

@@ -1,0 +1,71 @@
+ C A good traveler has no fixed plans and is not intent upon arriving.
+If your happiness is with money then you'll never be happy.
+calculations ka form bnanay k liay hm na is tutorial ko follow kia aur live wire ka use kia.
+	[Live-coding] Laravel Livewire: Parent-Child Form Example   ye tutorial dekha aur is k mutabiq kam krna hai.
+	composer require livewire/livewire command k through.
+	now add two lines of code in master file.
+
+	@livewireStyles  // just before end of </head>
+	@livewireScript  // just before end of </body> in your master layout file.
+	now component of livewire....
+	php artisan make:livewire Products
+	it will create CLASS: app/Http/Livewire/Products.php
+	View: resources/views/livewire/products.blade.php files.
+	now in Http/Livewire/Products.php file ... return view* view: 'livewire.products'); is there and in views/livewire/product.blade.php file, you can do what you want.
+	@livewire('products') can be used to include product.blade.php file in your own blade for example create.blade.php file.
+	after including livewire blade template you may write Hello in your livewire blade and you can see it rendered where you use @livewire('products') in 
+	your own blade template.
+	now let you have form in your own blade template, now remove your from your own template and paste it in div of products.blade.php and
+	now let @foreach($orderProducts are comming from your laravel, $orderProducts is now available in Livewire/Products.php class.
+	in products.php class of the livewire
+	class Products extends Component
+	{
+		public $orderProducts = [];
+		public $allProducts = []; // all bhi koi variable hai jo k aap k for ma foreach loop k andar kuch data lay kr aa rha tha.
+		// ab agar aap apna code run krain gay to aap ko agar pehlay kuch data aa rha tha $orderProducts k andar to wo ab ni ae ga kiun k hm nay empty kr di.
+	public function mount()
+		{
+			$this->allProducts = Product::all();  // ab agar ye code Product::all() aap k database sa data la rha tha to us code ko controller sa remove krain.
+		}
+	agar aap na controller ma Product::all() kr ka data jo lia tha wo remove kr dia hai aur ab aap compact function kr k agar view ko wo variable pass kr rhay 
+	hian matlab k return view(...... , variable // jis ma data hai to wo bhi remove kr dain kiun k Products.php ki livewire ki class ma wo code chla gya hai.
+=>=>=>	ab aap na tamam variables ko apnay own controller sa utha kr livewire ki product ki class ma mount k function ma ja kr rakh di hain.
+	ab aap ka pass products jo k database sa fetch ho kr aa rhi thi wo waisay hi a jaen gi.
+	ab let aap k pass form pr aik field quantity hai aur $orderProduct aap ki array ya object hai jis ma quantity hai aur aap form ma input k andar 
+	quantity ko by default 	1 rkhna chahtay hain to phir let aap ki input 
+	<input type="number"
+		name= "quantity"
+		value = "{{ $orderProduct['quantity'] }}"/> // ye wali line add kr dain aur phir.
+	ab Product.php livewire ki class ma mount function k andar aa kr...
+	$this->allProducts = Product::all();
+	$this->orderProducts = [
+		['product_id' => 1, 'quantity' = 1]
+	];   // ye ooper wali 2 lines add kr dain.
+	ab hm agar product k button pr click honay pr aik new product ki id, name, description, price etc add krna chah rhay hain to phir us k liay button ma ja kr.
+	<button class="btn btn-sm btn-secondary"
+		wire:click="addProduct">+ Add Another Product</button> kr dain.
+	agar    wire:click.prevent kr dain gay to agar button submit ka function bhi kr rha tha to phir wo prevent ho jae ga aur addProduct k function pr jaya jae ga.
+	ab public function addProduct() ka function bnae aur us ma.
+		$this->orderProducts[] = ['product_id' => '', 'quantity' => 1]; kr dain to hmaray form ma aik new row bn jae gi jis sa hm new product ki price etc
+	bhi aik hi waqt ma dal skain gay. aur ab aap ka form kam kray ga.
+=>=>	ab delete k liay....
+	<a href="#" wire:click.prevent="removeProduct({{$index}})">Delete</a> // removeProduct ka function bnaen ab Product.php ki livewire ki class ma.
+	//$index jo hai wo hmari product ki id hogi jo hm na set ki hogi jb products ko table ma show krwaya hoga to hr delete k button k peechay wo id set ki hogi.
+	public function removeProduct($index)
+	{
+		unset($this->orderProducts[$index]);
+		$this->orderProducts = array_values($this->orderProducts); // agar aik item delete kr di to phir hemin indexes ko dubara set krna hoga to wohi kia.
+	ab agar aap na product ka name likh lia aur phir kisi aur product ko delete kia to wo to delete ho gaii pr aap na jis product ka name likha tha wo bhi remove
+	ho gya kiun k aap na blade sa product.php class ki binding ni ki aur wo selected ya written data ko hasil ni kr rha to dubara wapis kaisay bhejay ga.
+	ab is binding k liay.
+	<input type="number"
+	name = "orderProducts[{{$index}}][quantity]"
+	class= "form-control"
+	wire:model="orderProducts.{{$index}}.quantity" /> // ye add kr dain to binding ho jae gi. ye laravel ki arrays ki dealing ki tara hi likha gaya hai.
+	ab agar hm na 3 rows add ki hain data ko dalnay k liay aur phir kuch data likha aur kuch remove kia to jo remove hua wo jaisay hi apni jaga sa remove
+	hoga to us ki jaga neechay wala written row lay ga lakin ab us ki values delete ni ho gi.
+	public function render()
+	{
+		info($this->orderProducts); // krnay sa hmein render ki information milay gi. ye laravel log k andar information milay gi. everytime jb hm add 
+	ya delete krain ya kuch bhi write krain.
+	

@@ -1,0 +1,107 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.round_input{
+	border-radius:10px;
+}
+.product_image_container{
+	position: relative;
+	
+}
+.product_image{
+	position:absolute;
+	top:50%;
+	transform: translateY(-50%);
+	width:40px;
+	height:40px;
+	
+}
+.product_image:hover{
+	position:absolute;
+	z-index:2;
+	width:150px;
+	height:150px;
+	transition:all 2s ease-out;
+}
+
+@media print{
+	.noPrint{
+		display:none;
+	}
+	.noBorderInput{
+	width:80px !important;
+	border:0px !important;
+	}
+	.printBoldFont{
+		font-weight: bold;
+	}
+	#GrandTotal{
+	float: right;
+	}
+	#h_display{
+		padding-left:250px;
+		padding-right:250px;
+		padding-top:50px;
+		padding-bottom:50px;
+		display:block !important;
+	}
+	
+}
+.custom_col_width{
+	max-width: 80px;
+}
+.first_col_width{
+	max-width:90px;
+}
+@media screen and (max-width: 360px) {
+
+}
+@media screen and (max-width:768px) {
+	.cmt{
+		margin-top:10px;
+	}
+	.c_label_padding{
+		padding: 0px;
+	}
+	.padding_settings{
+	padding-left:0px !important;
+	padding-top:10px;
+	padding-bottom:15px;
+	}
+	#input_id_width{
+		width:40px !important;
+	}
+	.small_screen_input_width{
+		width:68px !important;
+	}
+	#profit_btn{
+		margin-top:20px !important;
+	}
+}
+@media screen and (max-width:576px) {
+	
+}
+.card-img-top{
+	width: 100%;
+	height: 100%;
+	transition:all 1s linear;
+
+}
+
+.card-img-top:hover{
+	transform: scaleY(1.2);
+	width: 110%;
+	
+	
+
+}
+@import 'header';
+@import 'bootstrap4ToggleSwitch';
+
+

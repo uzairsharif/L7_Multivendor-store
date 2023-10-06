@@ -1,0 +1,30 @@
+me to do...
+composer require stichoza/google-translate-php    get package for translation... run this command.
+isko use kaisay krna hai to github pr is package ki detail dekhain.
+	
+	$tr = new GoogleTranslate('fr');
+	return $tr0>translate('Hello world');       // ye code likha tutorial ma or use Stichoza\GooglTranslate\GoogleTranslate; bhi kia tha ooper.
+	is ma hmein hard code krna par rha hai to faccade ko use kr k behtar treekay sa kr sktay hain.
+	return	GoogleTranslate :: trans('Hello World', 'fr');    is say bhi wohi kam ho jae ga.
+........
+
+
+10 glass...... 1 glass 100........   1000 k glass....
+10 glass...... 1 glass 50.........   500 k glass.....
+avg 75 rupay ka glasss.
+
+
+4 glass sale ho gae..... 
+75X4 = 300  ye hmaray pass cost of goods sold.....
+
+
+
+4 glass sale kia jo customer ko diay.
+80X4 = 320  rupay total sale/revenue.....
+
+
+total profit = sale - purchase  = 320-300 = 20..... 
+
+Lifo aur fifo bhi use hota hai idhar.... 
+
+	

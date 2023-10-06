@@ -1,0 +1,131 @@
+part 1
+	livewire vue aur react ki tarah hi kam krta hai aur ye ajax pr kam krta hai.
+	composer require livewire/livewire -vvv.    run this command without -vvv and see the difference if you can.
+	aap head k tag k andar @livewireStyles ko import krain aur 
+	@livewireScripts kr k body k end sa pehly livewire scripts ko add kr sktay hain.
+	php artisan livewire:make HelloWorld     to ye HelloWorld ka component create kr day ga.
+	ab is component ma aap return view ma ['name'=>'uzair'] kr sktay hain jis sa ye hoga k aap livewire k view views/resources/hello-world.blade.php $name variable
+	use kr sktay ho.
+	name=> 'uzair krnay ki bajae aap render function sa ooper public $name = "Imran Qasim" bhi use kr sktay hain.
+Part 02 Laravel Livewire Tutorial Series in Urdu/Hindi: How to use Laravel Livewire Properties
+	aap na livewire k blade template ma single div ma hi kam krna hai aur 
+	@livewireScripts jo hai wo vue, react, angular ki tarha virtual dome bnata hai pr ye ajax k through kam krta hai.
+	php artisan livewire:make HelloWorld2 --inline krnay sa template ni bnay ga aur component k andar hi template ka code likhna hoga phir.
+=>=>	properties
+	public $name = "uzair sharif"; ye aap ki property hai aur aap na is ko component ma likhna zaroor hai ta k aap isko apnay livewire k blade ma isko access kr
+	skain.   private $name = "uzair sharif" krnay sa ye sirf component ma use ho skta hai aur blade k andar use ni ho skay ga.
+	..........
+	public $name = "imran qasim";
+	public function mount()
+	{
+	$this->name = "Pakistan";
+	}  // ab name k andar pehlay imran qasim rakha pr mount kr k us ki value ko Pakistan kr dia to phir wo paksitan hi display hoga.
+=>=>=>	mount automatically kam krta hai aur vue ma hmein $this->name = "Pakistan"; krna hota hai mount k andar to hi wo accessible hota hai pr livewire ma 
+	agar public $name = "imran Qasim"; kia hua hai to bhi wo accessible ho jata hai template ma.
+	agar aap na 
+	$private $name =  "Imran Qasim"; kia hai to phir render function ma 
+	public function render(){
+		return view('livewire.hello-world', compact('name')); kia ja skta hai name ko access krnay k liay apnay template ya livewire k template ma.
+		balkay return view('livewire.hello-world', ['name' => $this->name]); krna hoga actually.
+
+Part 03 Laravel Livewire Tutorial Series in Urdu/Hindi: How to do Data Binding in Laravel Livewire
+	private properties ko hmein render function ma compact k through pass kr k access krna hota hai jaisay k last tutorial ma hm na seekha.
+	ab hm seekhain gay k hm properties ko kaisay elements k sath bind kr sktay hain.
+	component k andar hm 
+	public $message = 'place holder message'; kr dain aur phir apnay component k blade template k andar.
+		<input type="text" wire:model.debounce.500ms="message" />   // model ka matlab hua k hm binding kr rhay hain.// debounce ajax request sent krnay ki spped ko slow kr day ga network tab ma isko check krain.
+		<p>{{$message}}</p>     
+	kabhi aap k pass multiple inputs hoti hain aur aap chahtay hain k jb hm input ma sa exit na ho jao us waqt tk request update na ho.
+=>=>	let ab component ma public $message1 = "1st";
+			    public $message2 = "2nd";
+	ab livewire blade ma 
+		<p><input type="text" wire:model.debounce.150ms = "message1" /></p>
+		<p><input type="text" wire:model.debounce.150ms = "message2" /></p>
+		<p>{{$message1}}</p>
+		<p>{{$message2}}</p>
+	ab aap dekhain gay browser ma k jaisay hi aap input ma kuch type krtay hain to wo neechay show ho rha hai pr hm chahtay hain k jaisay hi hm input sa
+	exit hn to message show hn.
+		<p><input type= "text" wire:model.lazy   // ko use kr k hm isko acheive kr sktay hain aur ab 1st input sa out honay pr hi 1st message show hoga.
+Part 04 Laravel Livewire Tutorial Series in Urdu/Hindi: How to Use Laravel Livewire Actions
+	laravel livewire actions k through hm component k functions k sath interact krtay hain.
+=>	hm na link pr click kia aur phir kisi dusray page pr chlay gae to ye action hota hai.
+	laravel livewire click, keypress, focus etc ye livewire k actions hain.
+=>	php artisan livewire:make counter. kr k aik new component create krain.
+	ab new component k andar.
+	public $counter;
+	public function increment()
+		{
+			$this->counter++;
+		}
+	public function decrement(){
+		$this->counter--;
+		}
+	public function mount(){    // jb browser refresh hoga to counter =0 ho jae ga.
+		$this->counter =0;
+		}
+	ab component ki blade file k andar.
+	<p>{{$counter}}</p>
+	<button>+</button> | <button>-</button>
+	aur ab welcome.blade.php ya apnay kisi bhi view k andar
+	@livewire('counter') ko add kr dain.
+=>=>	ab browser ma aap dekhain gay k button to aa gae hain pr kam ni kr rhay to is k liay apnay component k blade file ma 
+	<button wire:click="increment">+</button> | <button wire:click="decrement">-</button>
+	// --keydown-- wire:keydown , submit-- wire:submit, click wire:click  ye hmaray kuch actions hain jo important hain.
+	<button wire:click="$set('// idhar apni property denay sa automaticallay increment ho skta hai aur component ma increment ka function ni bnana hoga pr wo khud dekhain kaisay hoga.
+	<p><input type="text" wire:model.lazy="step"></p> step hmari property hai jo k private $step; hogi hmaray component ma.
+=>=> private $step is liay k hm na $step ko browser pr show ni krna .
+	ab hm ye chah rhay hain k hm utna increment krain jo hm nay input (text box) k andar value rakhi hui hai.
+	to ab increment() function k andar code modify krain.
+	$this->counter+=$this->step; kr dain.
+	aur decrement function ma.
+	$this->counter-= $this->step;   // equal to : $this->counter = $this->counter -$this->step;
+	mount function k andar
+	$this->counter =0;
+	$this->step =1; kr dain.
+	browser ma input k andar by default 1 hona chahiay but aesa ni ho rha us ki reason ye hain k hm na soca k step ko hm na browser pr show ni krwana but wo mistake 
+	this aur hmein private $step ko public $step krna hoga.
+	imran qasim ka + ka button kam ni kr rha tha kiun k 
+	<button wire:click="">+</button>   // is ma <button wire:click="increment">+</button> ni kia tha.
+	agar
+	<input wire:keydown.arrow-up="increment" wire:keydown.arrow-down="decrement" "type="text" wire:model:lazy="step" /></p> kr dia jae to phir 
+	button ko click kiay baghair hm arrow up press kr k increment aur arrow down kr k decrement kr sktay hain.
+	enter aur escape bhi use ho sktay hain arrow keys ki jaga.
+=>=>=>	wire:submit.prevent="// here comes function name" krnay sa submit button k default function kam ni kray ga aur hmara specified function kam kray ga.
+	<input wire:keydown.enter = "increment({{$step}}) kr kay hm increment function ko para meter pass kr sktay hain.
+	ab compoent ma ye variable chla jae ga 
+=>=>=>	aur hmein $this->step ki jaga ab $step use krna hoga kiun k ab ye view sa value aa rhi hai.
+Part 05 Laravel Livewire Tutorial Series in Urdu/Hindi: How to use Laravel Liveware Lifecycle Hooks
+	lifecycle hooks different occasions pr different kisam k functions ko execute krnay ka name hai.
+	public function mount hmara aik life cycle hook hai.
+=>=>=>	mount function jo hai wo component k load honay pr kuch values ko assign krta hai.
+	public $counter; hmari property hai aur hm na mount k function k andar $this->counter=0; kia tha pr hm public $counter = 0 bhi to kr sktay thay.
+=>=>=>=>mount dynamic variables ko accept kr skta hai aur hm dependency injection bhi kr sktay hain.
+	isko samajhnay k liay.
+	public function mount($step = 1)
+	{
+		$this->counter = 0;
+		$this->step = $steps;  // public $step; ooper hmari property hai pr ab  is line ma $this->step = $step krnay sa $step ki property ma default value 1 hogi.
+	}
+	welcome.blade.php file ma
+	@livewire('counter', ['steps'=>5])  //ye value public function mount($steps=1) ko $steps = 5 kr day gi aur phir mount k function ma.
+		$this->step = 5 ho jae gi.
+	ab browser ma text field ma 5 value show hogi. 
+=>=>=>	mount use krnay sa hm welcome.blade.php file sa component ko value pass kr sktay hain.
+=>=>	ab hm dependency injection krtay hain mount k lifecycle hooks ko use kr k.
+	"dependency injection kr sktay hain more dynamic values assign kr sktay hain"
+	public function mount(Request $request, $steps = 1)   ooper use Illuminate/Http/Requst; kr k request ko import kr lain.
+	ab mount k function ma hm
+	$this->steps = $request->steps ?? $steps; // iska matlab ye hai k agar $request->steps ma kuch hai to wo assign ho ni to $steps assign ho.
+	ooper wali line krain gay to browser ma hmaray pass input k andar 5 value ae gi kiun k hm na welcome.blade.php file k andar....
+	5 value pass ki thi steps k andar.
+	ab agar hm url ma ? steps =20 kr dain to phir input ma 20 show hoga aur 20 ko aap url ma sa kisi bhi value ma change kr sktay hain to input wohi ae gi.
+	
+	ye kam hm $public steps ki madad sa ni kr sktay thay to hm na mount ka function use kia jo aik hi dfa load hota hai jb hm browser ko refresh krtay hain.
+=>=>=> ab aap public $hydrate = 1; lain
+	public function hydrate(){
+		$this->hydrate++;	
+	}
+	<p> Hydrate: {{$hydrate}}</p>   
+	ab agar aap k pass jo input field hai, aap us ma value change krtay hain to phir hydrate ki value every time increment hoti rhay gi.	
+	
+	

@@ -1,0 +1,6 @@
+1. client side pr hmaray pass products show ho rhi hn gi different shops ki. jb user login nhi hoga to bhi wo products order kr skay ga aur agar logged in hoga to 
+	phir bhi wo products order kr skay ga.... jb logged in ho kr products order kray ga to phir kia faida hoga....?
+2. jb user products list dekh rha hoga to phir view product ka button hai image k neechay wo is liay k is pr click kr k user product ki detail ka page dekh skay.
+	mtlb k product k different sizes aur different colours etc ki detail get kr skay....
+3. jb client side pr koi visit kr rha hai to phir login pr click kr k client side pr hi login ho na k admin side pr. jo k abhi meray pass ho rha hai.
+4. jb new user signup ho to phir ussay by default customer ka role hi assign ho.? ma na admin aur not_admin ka role bnaya hai. kia yeh theek hai.

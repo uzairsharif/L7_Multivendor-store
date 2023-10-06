@@ -1,0 +1,96 @@
+REQUIREMENTS:
+A. Root Admin (functions are there but to be customized)
+- Dashboard
+- Orders (all orders/pending orders/processing orders/completed orders/declined orders)
+- Products (Add new products/all products/ deactivated products/ product catalogs)
+- Affiliate Products (Add affiliate products/all affiliate products)
+- Customers (customers list/withdraws/ customer default image)
+- Manage categories ( Main Category/ sub category/ child category)
+- Bulk Upload (with csv)
+- Product discussion (Product reviews/ product comments/ reports)
+- Set Coupons
+- Blogs (categories/ posts)
+- Messages (tickets/ disputes)
+- General Setting (Logo/ favicon/loaders/ shipping method/ packaging/ pick up location/ website contents/ footer/ affiliate information/ popup banner/ error banner/ Website maintenance)
+- Home page setting (Sliders/ services/ banners/ top banners/ large banners/ bottom banners/ reviews/ partners. Home customization)
+- Menu Page Settings (about us/ contact us/ careers. Become our reseller/ become an affiliate. CUSTOMR SERVICE- FAQS/ My Account/ My orders/ Whatsapp Chat/ Payment Methods.. Terms & conditions. Warranty Policies. Privacy Policies. Shipping Policies. Return Policies. Cookie Policies. Stay in touch- Download App Store, Google play.
+- Social Media Accounts.
+- Email Settings (email template/ email configuration/ group email)
+- Social Settings (Social links/ Facebook log in/ google log in)
+- Language setting (website language/ admin panel language)
+- SEO tools (Popular products/ google analytics/ website meta key words)
+- Manage staffs
+- Subscribers
+- Manage roles
+- Clear cache
+B. USER PANEL (functions are there but to be customized)
+- LOG IN/ SIGN UP/ THROUGH SOCIAL MEDIA
+- Dashboard
+- Purchased items
+- Affiliate codes
+- Order tracking
+- Messages
+- Tickets
+- Disputes
+- Edit profile
+- Reset password
+- Log out
+- Pricing plans
+- Orders
+- Products (add new products/ all products/ product catalogues)- should be in English and Arabic
+- Affiliate products (Add affiliate products/ all affiliate products)
+- Bulk Upload (with CSV)
+- Settings (Services/ banners/ shipping methods/ packaging/ social links)
+C. End customer (functions are there but to be customized)
+- Account management
+- Log in/ sign up/ register
+- Account information
+- Order list
+- Wish list
+- Cart
+- Compare
+- Track orders
+D. ALL WEBSITE DESIGN, GRAPHIC DESIGNS, INTEGRATION AND FUNCTIONALITY OF THE WEBSITE DEVELOPMENT. It should be responsive. (functions are there but to be customized)
+- Detecting language per location
+- Detecting currency per location
+- Account settings
+- Sell button settings and functions
+- Top navigation for the logo, smart search bars
+- Categories
+- Subcategories
+- All categories
+- Banners and buttons
+- Features products
+- Best sellers
+- Flash deals
+- Top rated
+- Collections (categories and sub categories)
+- Big save
+- Hot products
+- New products
+- Trending products
+- Sale products
+- Brands/ Top brands
+- Footers and contents
+E. Dashboards for the main admin, client, b2b/wholesale buyers (functions are there but to be customized)
+F. Home page/ second Page/ Shop page (functions are there but to be customized)
+G. Categories and filters in the shop . Also the second landing pages. (functions are there but to be customized) H. Forms for the wholesale registration/ buyers/ Platforms and pages (THIS WE NEED TO DEVELOP) I. Smart wholesale registration section and functions including 2 step orders (registration the sending of PO/ request for quotation/ and discounts to be applied) J. Modern and smart career section (THIS WE NEED TO DEVELOP)
+K. Third Party Shipping Integration via API (ARAMEX) (This has to be integrated)
+L. Third party payment Integration via API (MASHREQ) This has to be integrated)
+M. ERP Integration (SMACC This has to be integrated) N. Whatsapp chat And chatbot auto replies (not live chat) (THIS WE NEED TO DEVELOP)
+O. Website should be dual language for both website frame and products (RTL is there but Arabic content is there)
+P. Pointing reward system/ Catalog download/ Affiliate/ Wholesale registration functions and sections (THIS WE NEED TO DEVELOP)
+Q. Products upload (functions are there but to be customized)
+- Should be technically translate (not via google translate)
+- Should be in English and Arabic R. Video sections (THIS WE NEED TO DEVELOP) S. B2B Portal (THIS WE NEED TO DEVELOP)
+T. Client account reconciliation (functions are there but to be customized)
+U. Website should be mobile responsive (theme is mobile responsive)
+V. Printing of invoice (function is there)
+W. Registration via social media such as Facebook and gmail (functions are there but to be customized)
+X. Migrating to the server (has to be done from your side)
+Y. Support/maintenance for 1 year (has to be done from your side)
+Z. All other changes/ modifications as per to the PLSP request
+AA. Features will be for PLSP
+BB. UI design we will provide you
+CC. Laravel platform (given)
+DD. Framework and products should be in English and Arabic
